@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "ECC Çöz";
+}
+
+<div class="container-fluid min-vh-100 d-flex flex-column align-items-center justify-content-center" style="padding-top: 2rem;">
+    <div class="main-card" style="max-width: 900px; width: 100%;">
+        <div class="card-header d-flex align-items-center gap-2" style="font-size: 1.5rem;">
+            <!-- SVG Key (black color) -->
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="9" r="3" stroke="#111" stroke-width="2"/><path d="M15 12V21" stroke="#111" stroke-width="2" stroke-linecap="round"/><path d="M15 15H18V18H15" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+            <span style="font-family: 'Orbitron', monospace; font-weight: 700; letter-spacing: 1px;">ECC Çöz</span>
+        </div>
+        <div class="card-body">
+            <form method="post" asp-action="Decrypt" asp-controller="Ecc">
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <label for="encryptedText" class="form-label" style="font-family: 'Orbitron', monospace; font-weight: 600; color: #00ff41;">Şifrelenmiş Metin</label>
+                        <textarea class="form-control custom-textarea" id="encryptedText" name="encryptedText" rows="6" required placeholder="Şifrelenmiş metni buraya yapıştırın...">@ViewBag.InputEncryptedText</textarea>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="privateKey" class="form-label" style="font-family: 'Orbitron', monospace; font-weight: 600; color: #00ff41;">Private Key</label>
+                        <textarea class="form-control custom-textarea" id="privateKey" name="privateKey" rows="6" required readonly placeholder="Private key buraya gelecek...">@ViewBag.PrivateKey</textarea>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label" style="font-family: 'Orbitron', monospace; font-weight: 600; color: #00ff41;">Çözülen Metin</label>
+                        <div class="position-relative">
+                            <textarea class="form-control custom-textarea" id="decryptedText" rows="6" readonly placeholder="Çözülen metin burada görünecek...">@ViewBag.DecryptedText</textarea>
+                            <div class="position-absolute top-0 end-0 m-2 d-flex gap-1">
+                                <button type="button" class="btn btn-sm btn-custom-gray" onclick="copyToClipboard('decryptedText')" title="Kopyala">
+                                    <!-- SVG Clipboard -->
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-custom-generate w-100 d-flex align-items-center justify-content-center gap-2">
+                        <!-- SVG Key -->
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="9" r="3" stroke="#111" stroke-width="2"/><path d="M15 12V21" stroke="#111" stroke-width="2" stroke-linecap="round"/><path d="M15 15H18V18H15" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+                        Çöz
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        function copyToClipboard(id) {
+            const el = document.getElementById(id);
+            el.select();
+            el.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            
+            // Show feedback
+            const btn = event.target.closest('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+            btn.style.background = 'linear-gradient(45deg, #00ff41, #00cc33)';
+            btn.style.color = '#000000';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+                btn.style.color = '';
+            }, 1000);
+        }
+    </script>
+}

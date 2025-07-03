@@ -1,0 +1,151 @@
+@{
+    ViewData["Title"] = "SHA256 Hash";
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0 bg-dark text-light">
+                <div class="card-header bg-success text-white text-center py-3">
+                    <h2 class="mb-0">
+                        <svg class="me-2" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                        SHA256 Hash İşlemi
+                    </h2>
+                </div>
+                <div class="card-body p-4">
+                    <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <div class="mb-4">
+                            <label for="input" class="form-label text-success fw-bold">
+                                <svg class="me-2" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                Metin Girişi
+                            </label>
+                            <textarea class="form-control bg-dark text-light border-success" 
+                                      id="input" 
+                                      name="input" 
+                                      rows="4" 
+                                      placeholder="Hash'lenecek metni buraya girin..."
+                                      style="resize: vertical;">@(ViewBag.InputText ?? string.Empty)</textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label text-success fw-bold">
+                                <svg class="me-2" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M.5 3.5A.5.5 0 0 1 1 4v3.248l6.267 3.636c.52.302 1.233-.043 1.233-.696V7.204l6.267 3.636c.52.302 1.233-.043 1.233-.696V4a.5.5 0 0 1 1 0v10a.5.5 0 0 1-1 0V8.755l-6.267 3.636c-.52.302-1.233-.043-1.233-.696V12.204l-6.267 3.636c-.52.302-1.233-.043-1.233-.696V4a.5.5 0 0 1 .5-.5z"/>
+                                </svg>
+                                VEYA Dosya Seçin
+                            </label>
+                            <input type="file" 
+                                   class="form-control bg-dark text-light border-success" 
+                                   name="file" 
+                                   accept="*/*">
+                            <div class="form-text text-muted">
+                                <svg class="me-1" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                </svg>
+                                Maksimum dosya boyutu: 100MB
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success btn-lg">
+                                <svg class="me-2" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                SHA256 Hash Oluştur
+                            </button>
+                        </div>
+                    </form>
+
+                    @if (ViewBag.ShowHash == true)
+                    {
+                        <div class="mt-4">
+                            <div class="alert alert-success border-0">
+                                <h5 class="alert-heading text-success">
+                                    <svg class="me-2" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                    </svg>
+                                    SHA256 Hash Sonucu
+                                </h5>
+                                <div class="bg-dark p-3 rounded border border-success">
+                                    <code class="text-success fs-6" style="word-break: break-all;">@ViewBag.HashResult</code>
+                                </div>
+                                @if (ViewBag.IsFileMode == true)
+                                {
+                                    <small class="text-muted">
+                                        <svg class="me-1" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M.5 3.5A.5.5 0 0 1 1 4v3.248l6.267 3.636c.52.302 1.233-.043 1.233-.696V7.204l6.267 3.636c.52.302 1.233-.043 1.233-.696V4a.5.5 0 0 1 1 0v10a.5.5 0 0 1-1 0V8.755l-6.267 3.636c-.52.302-1.233-.043-1.233-.696V12.204l-6.267 3.636c-.52.302-1.233-.043-1.233-.696V4a.5.5 0 0 1 .5-.5z"/>
+                                        </svg>
+                                        Dosya hash'i başarıyla oluşturuldu
+                                    </small>
+                                }
+                                else
+                                {
+                                    <small class="text-muted">
+                                        <svg class="me-1" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                        </svg>
+                                        Metin hash'i başarıyla oluşturuldu
+                                    </small>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Form validation
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        }, false);
+    });
+
+    // Auto-resize textarea
+    const textarea = document.getElementById('input');
+    if (textarea) {
+        textarea.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+    }
+
+    // File input change handler
+    const fileInput = document.querySelector('input[type="file"]');
+    const textInput = document.getElementById('input');
+    
+    if (fileInput && textInput) {
+        fileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                textInput.disabled = true;
+                textInput.placeholder = 'Dosya seçildi - metin girişi devre dışı';
+            } else {
+                textInput.disabled = false;
+                textInput.placeholder = 'Hash\'lenecek metni buraya girin...';
+            }
+        });
+        
+        textInput.addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                fileInput.disabled = true;
+            } else {
+                fileInput.disabled = false;
+            }
+        });
+    }
+});
+</script> 

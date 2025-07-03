@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SifrelemeProjesi</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SifrelemeProjesi.styles.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="encryption-bg">
+        <span class="encryption-symbol" style="left: 8%; animation-delay: 0s;">
+            <!-- SVG Lock -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="11" width="14" height="8" rx="3" stroke="#111" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="#111" stroke-width="2"/></svg>
+        </span>
+        <span class="encryption-symbol" style="left: 22%; animation-delay: 2.5s;">
+            <!-- SVG Key -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="9" r="3" stroke="#111" stroke-width="2"/><path d="M15 12V21" stroke="#111" stroke-width="2" stroke-linecap="round"/><path d="M15 15H18V18H15" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+        <span class="encryption-symbol" style="left: 35%; animation-delay: 1.2s;">
+            <!-- SVG Binary 0 -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="12" rx="5" ry="8" stroke="#111" stroke-width="2"/></svg>
+        </span>
+        <span class="encryption-symbol" style="left: 48%; animation-delay: 4.1s;">
+            <!-- SVG Binary 1 -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 4V20" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+        <span class="encryption-symbol" style="left: 60%; animation-delay: 3.2s;">
+            <!-- SVG Shield -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L4 6V11C4 16.52 7.58 20.74 12 21C16.42 20.74 20 16.52 20 11V6L12 3Z" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="encryption-symbol" style="left: 73%; animation-delay: 1.7s;">
+            <!-- SVG Binary 1 -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 4V20" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+        <span class="encryption-symbol" style="left: 85%; animation-delay: 5.3s;">
+            <!-- SVG Binary 0 -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="12" rx="5" ry="8" stroke="#111" stroke-width="2"/></svg>
+        </span>
+        <span class="encryption-symbol" style="left: 92%; animation-delay: 2.9s;">
+            <!-- SVG Lock -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="11" width="14" height="8" rx="3" stroke="#111" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="#111" stroke-width="2"/></svg>
+        </span>
+    </div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-sm nav-glow justify-content-center">
+            <div class="container-fluid d-flex flex-column align-items-center">
+                <a class="navbar-brand d-flex align-items-center justify-content-center w-100" href="/">
+                    <span class="nav-logo-icon" style="font-size:2rem; margin-right:8px;">
+                        <!-- SVG Shield Lock (black color) -->
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L4 6V11C4 16.52 7.58 20.74 12 21C16.42 20.74 20 16.52 20 11V6L12 3Z" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="13" r="2.5" stroke="#111" stroke-width="2"/><path d="M12 15.5V17" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="nav-logo-text" style="font-family: 'Orbitron', monospace; font-weight: 900; font-size: 1.7rem; letter-spacing: 1px;">KriptoMaster</span>
+                </a>
+                <button class="navbar-toggler mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center mt-2" id="navbarContent">
+                    <ul class="navbar-nav nav-btn-group justify-content-center w-100" style="gap: 1.2rem;">
+                        <li class="nav-item">
+                            <a class="btn btn-ecc-encrypt nav-btn me-2 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Ecc" && ViewContext.RouteData.Values["action"]?.ToString() == "Encrypt" ? "border border-3 border-light" : "")"
+                               href="/Ecc/Encrypt">
+                                <span class="nav-btn-icon">
+                                    <!-- SVG Shield Lock for Encrypt -->
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L4 6V11C4 16.52 7.58 20.74 12 21C16.42 20.74 20 16.52 20 11V6L12 3Z" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="13" r="2.5" stroke="#111" stroke-width="2"/><path d="M12 15.5V17" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+                                </span> <span class="nav-btn-text">ECC Şifrele</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-ecc-decrypt nav-btn me-2 @(ViewContext.RouteData.Values["controller"]?.ToString() == "Ecc" && ViewContext.RouteData.Values["action"]?.ToString() == "Decrypt" ? "border border-3 border-light" : "")"
+                               href="/Ecc/Decrypt">
+                                <span class="nav-btn-icon">
+                                    <!-- SVG Key for Decrypt -->
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="9" r="3" stroke="#111" stroke-width="2"/><path d="M15 12V21" stroke="#111" stroke-width="2" stroke-linecap="round"/><path d="M15 15H18V18H15" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+                                </span> <span class="nav-btn-text">ECC Çöz</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-sha256-hash nav-btn @(ViewContext.RouteData.Values["controller"]?.ToString() == "Hash" && ViewContext.RouteData.Values["action"]?.ToString() == "Sha512" ? "border border-3 border-light" : "")"
+                               href="/Hash/Sha512">
+                                <span class="nav-btn-icon">
+                                    <!-- SVG Search for Hash -->
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="#111" stroke-width="2"/><path d="M21 21L16.65 16.65" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+                                </span> <span class="nav-btn-text">SHA512 Hash</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <span style="font-family: 'Orbitron', monospace; font-weight: 400;">&copy; @DateTime.Now.Year - Şifreleme Uygulaması | Güvenli Şifreleme Teknolojileri</span>
+        </div>
+    </footer>
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

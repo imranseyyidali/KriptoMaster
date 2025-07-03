@@ -1,0 +1,138 @@
+﻿@{
+    ViewData["Title"] = "ECC Şifrele";
+}
+
+<div class="container-fluid min-vh-100 d-flex flex-column align-items-center justify-content-center" style="padding-top: 2rem;">
+    <div class="main-card" style="max-width: 900px; width: 100%;">
+        <div class="card-header d-flex align-items-center gap-2" style="font-size: 1.5rem;">
+            <!-- SVG Shield Lock (black color) -->
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L4 6V11C4 16.52 7.58 20.74 12 21C16.42 20.74 20 16.52 20 11V6L12 3Z" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="13" r="2.5" stroke="#111" stroke-width="2"/><path d="M12 15.5V17" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+            <span style="font-family: 'Orbitron', monospace; font-weight: 700; letter-spacing: 1px;">ECC Anahtar Üretici</span>
+        </div>
+        <div class="card-body">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <label class="form-label">Public Key:</label>
+                    <div class="position-relative">
+                        <textarea class="form-control" id="publicKeyDisplay" rows="4" readonly>@ViewBag.PublicKey</textarea>
+                        <div class="position-absolute top-0 end-0 me-4 m-2 d-flex gap-1">
+                            <a href="javascript:void(0)" onclick="downloadText('publicKeyDisplay', 'public_key.pem')" class="btn btn-sm btn-custom-gray" title="İndir">
+                                <!-- SVG Download -->
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            </a>
+                            <button type="button" class="btn btn-sm btn-custom-gray" onclick="copyToClipboard('publicKeyDisplay')" title="Kopyala">
+                                <!-- SVG Clipboard -->
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                            </button>
+                            <button type="button" class="btn btn-sm btn-custom-gray" onclick="expandTextarea('publicKeyDisplay')" title="Genişlet">
+                                <!-- SVG Expand -->
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7.5 7.5"/><path d="M3 21l7.5-7.5"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Private Key:</label>
+                    <div class="position-relative">
+                        <textarea class="form-control" id="privateKeyDisplay" rows="4" readonly>@ViewBag.PrivateKey</textarea>
+                        <div class="position-absolute top-0 end-0 me-4 m-2 d-flex gap-1">
+                            <a href="javascript:void(0)" onclick="downloadText('privateKeyDisplay', 'private_key.pem')" class="btn btn-sm btn-custom-gray" title="İndir">
+                                <!-- SVG Download -->
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            </a>
+                            <button type="button" class="btn btn-sm btn-custom-gray" onclick="copyToClipboard('privateKeyDisplay')" title="Kopyala">
+                                <!-- SVG Clipboard -->
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                            </button>
+                            <button type="button" class="btn btn-sm btn-custom-gray" onclick="expandTextarea('privateKeyDisplay')" title="Genişlet">
+                                <!-- SVG Expand -->
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7.5 7.5"/><path d="M3 21l7.5-7.5"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form method="post" asp-controller="Ecc" asp-action="GenerateKeys" class="mt-4">
+                <button type="submit" class="btn btn-custom-generate w-100 d-flex align-items-center justify-content-center gap-2">
+                    <!-- SVG Refresh -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.13-3.36L23 10M1 14.99A9 9 0 0 0 16.49 21L23 14.99"/></svg>
+                    Anahtarları Üret
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="main-card mt-4" style="max-width: 900px; width: 100%;">
+        <div class="card-header d-flex align-items-center gap-2" style="font-size: 1.5rem;">
+            <!-- SVG Lock -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="11" width="14" height="8" rx="3" stroke="#111" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="#111" stroke-width="2"/></svg>
+            <span style="font-family: 'Orbitron', monospace; font-weight: 700; letter-spacing: 1px;">RSA Şifrele</span>
+        </div>
+        <div class="card-body">
+            <form method="post" asp-action="Encrypt" asp-controller="Ecc">
+                <div class="row g-4">
+                    <div class="col-md-4 mb-3">
+                        <label for="plainText" class="form-label">Şifrelenecek Metin</label>
+                        <input type="text" class="form-control mb-2" id="plainText" name="plainText" required
+                               value="@ViewBag.InputPlainText" placeholder="Metin giriniz..." />
+                        <button type="submit" class="btn btn-custom-generate w-100 d-flex align-items-center justify-content-center gap-2 mt-2">
+                            <!-- SVG Lock -->
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="11" width="14" height="8" rx="3" stroke="#111" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="#111" stroke-width="2"/></svg>
+                            Şifrele
+                        </button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="publicKey" class="form-label">Public Key</label>
+                        <textarea class="form-control" id="publicKey" name="publicKey" rows="6" required>@ViewBag.PublicKey</textarea>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Şifrelenmiş Metin</label>
+                        <div class="position-relative">
+                            <textarea class="form-control" id="encryptedText" rows="6" readonly>@ViewBag.EncryptedText</textarea>
+                            <div class="position-absolute top-0 end-0 me-4 m-2 d-flex gap-1">
+                                <button type="button" class="btn btn-sm btn-custom-gray" onclick="copyToClipboard('encryptedText')" title="Kopyala">
+                                    <!-- SVG Clipboard -->
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts 
+{
+    <script>
+        function copyToClipboard(id) {
+            const el = document.getElementById(id);
+            el.select();
+            el.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            // Show feedback
+            const btn = event.target.closest('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+            btn.style.background = 'linear-gradient(45deg, #00ff41, #00cc33)';
+            btn.style.color = '#000000';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+                btn.style.color = '';
+            }, 1000);
+        }
+        function downloadText(id, filename) {
+            const text = document.getElementById(id).value;
+            const blob = new Blob([text], { type: "text/plain" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = filename;
+            a.click();
+        }
+        function expandTextarea(id) {
+            const el = document.getElementById(id);
+            el.rows = el.rows === 4 ? 12 : 4;
+        }
+    </script>
+}
