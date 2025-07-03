@@ -13,7 +13,8 @@ Uygulama, kullanıcı dostu, cyber/teknolojik ve tamamen Türkçe bir arayüz su
 
 ### 1. Ana Sayfa
 
-![Ana Sayfa](image/Anasayfa.png)
+![Ana Sayfa](![ANA SAYFA](https://github.com/user-attachments/assets/f2cab8a9-159b-49c7-8cd6-62bfda4f802a)
+)
 
 - Hızlı erişim: ECC şifreleme, çözme ve SHA512 hash sayfalarına yönlendirme.
 - Anahtar çifti oluşturma ve kopyalama.
@@ -23,7 +24,8 @@ Uygulama, kullanıcı dostu, cyber/teknolojik ve tamamen Türkçe bir arayüz su
 
 ### 2. ECC ile Şifreleme
 
-![ECC Şifreleme](image/RSA%20Şifrele%20Sayfası.png)
+![ECC Şifreleme](![ECC ŞİFRE](https://github.com/user-attachments/assets/f75d7e50-e974-4337-8df7-9b14d1fbe37c)
+)
 
 - Açık anahtarınızı girin, şifrelenecek metni yazın ve **Şifrele** butonuna tıklayın.
 - Sonuç: Şifrelenmiş metni kolayca kopyalayabilirsiniz.
@@ -32,7 +34,8 @@ Uygulama, kullanıcı dostu, cyber/teknolojik ve tamamen Türkçe bir arayüz su
 
 ### 3. ECC ile Çözme
 
-![ECC Çözme](image/RSA%20Çöz%20sayfası.png)
+![ECC Çözme](![ECC ÇOZ](https://github.com/user-attachments/assets/df295e33-3c5d-4ff9-9544-d1fe2e510724)
+)
 
 - Şifreli metni ve özel anahtarınızı girin, **Çöz** butonuna tıklayın.
 - Sonuç: Orijinal metni güvenli şekilde elde edin.
@@ -41,7 +44,8 @@ Uygulama, kullanıcı dostu, cyber/teknolojik ve tamamen Türkçe bir arayüz su
 
 ### 4. SHA512 Hash Sayfası
 
-![SHA512 Hash](image/Metin%20Şifreleme%20SHA256%20Hash.png)
+![SHA512 Hash](![HASH METİN](https://github.com/user-attachments/assets/5a186dee-ce7e-4f6b-90ac-e23d61f50362)
+)
 
 - Metin veya dosya için SHA512 hash değeri oluşturun.
 - Sonucu tek tıkla kopyalayın.
@@ -86,11 +90,12 @@ Aşağıya kendi ekran görüntülerinizi ekleyebilirsiniz:
 | Ana Sayfa | ECC Şifreleme | ECC Çözme | SHA512 Hash |
 |-----------|---------------|-----------|-------------|
 | ![Ana Sayfa](![ANA SAYFA](https://github.com/user-attachments/assets/19a4f631-b347-4240-b774-8b197ca78ba7)
-) | ![ECC Şifreleme](image/RSA%20Şifrele%20Sayfası.png) | ![ECC Çözme](image/RSA%20Çöz%20sayfası.png) | ![SHA512 Hash](image/Metin%20Şifreleme%20SHA256%20Hash.png) |
+) | ![ECC Şifreleme](![ECC ŞİFRE](https://github.com/user-attachments/assets/292ac629-a1c1-41dd-994b-5dc20c9f082a)
+) | ![ECC Çözme](![ECC ÇOZ](https://github.com/user-attachments/assets/3b106b58-32d5-4037-831d-904ef0a4fcf3)
+) | ![SHA512 Hash](![HASH METİN](https://github.com/user-attachments/assets/6685a3a7-a64e-45fd-8042-ac85bf539190)
+) |
 
-> 📷 **Not:** Kendi ekran görüntülerinizi `image/` klasörüne ekleyip yukarıdaki bağlantıları güncelleyebilirsiniz.
 
----
 
 ## 💡 Katkı Sağlama
 
@@ -98,4 +103,4 @@ Aşağıya kendi ekran görüntülerinizi ekleyebilirsiniz:
 - Hataları veya önerileri Issues kısmından bildirin.
 
 
-Her türlü soru ve öneriniz için iletişime geçebilirsiniz. 
+ 
