@@ -1,4 +1,5 @@
 # 🔐 KriptoMaster Projesi
+PROJE DENEME İÇİN LİKE TİKLEYİNİZ : http://imranseyyidali.somee.com/
 
 KriptoMaster, ASP.NET Core MVC ile geliştirilmiş, modern ve Türkçe bir şifreleme platformudur. Kullanıcılar, metin veya dosya verilerini **güvenli bir şekilde şifreleyebilir, çözebilir ve hash** değerlerini kolayca oluşturabilirler. Projede güncel ve güçlü kriptografi yöntemleri kullanılmıştır:
 
