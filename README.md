@@ -69,23 +69,6 @@ Uygulama, kullanıcı dostu, cyber/teknolojik ve tamamen Türkçe bir arayüz su
 
 ---
 
-## 🚀 Kurulum ve Çalıştırma
-
-1. **Projeyi Klonlayın:**
-   ```bash
-   git clone https://github.com/kullaniciadi/KriptoMaster.git
-   cd KriptoMaster
-   ```
-2. **Gereksinimler:**
-   - .NET 6 veya üzeri
-   - NuGet paketleri otomatik yüklenir
-3. **Projeyi Başlatın:**
-   ```bash
-   dotnet run
-   ```
-   veya Visual Studio ile açıp F5 ile çalıştırın.
-
----
 
 ## 👨‍💻 Kullanım Senaryoları
 
@@ -102,7 +85,8 @@ Aşağıya kendi ekran görüntülerinizi ekleyebilirsiniz:
 
 | Ana Sayfa | ECC Şifreleme | ECC Çözme | SHA512 Hash |
 |-----------|---------------|-----------|-------------|
-| ![Ana Sayfa](image/Anasayfa.png) | ![ECC Şifreleme](image/RSA%20Şifrele%20Sayfası.png) | ![ECC Çözme](image/RSA%20Çöz%20sayfası.png) | ![SHA512 Hash](image/Metin%20Şifreleme%20SHA256%20Hash.png) |
+| ![Ana Sayfa](![ANA SAYFA](https://github.com/user-attachments/assets/19a4f631-b347-4240-b774-8b197ca78ba7)
+) | ![ECC Şifreleme](image/RSA%20Şifrele%20Sayfası.png) | ![ECC Çözme](image/RSA%20Çöz%20sayfası.png) | ![SHA512 Hash](image/Metin%20Şifreleme%20SHA256%20Hash.png) |
 
 > 📷 **Not:** Kendi ekran görüntülerinizi `image/` klasörüne ekleyip yukarıdaki bağlantıları güncelleyebilirsiniz.
 
@@ -113,12 +97,5 @@ Aşağıya kendi ekran görüntülerinizi ekleyebilirsiniz:
 - Fork'layın, geliştirin ve pull request gönderin.
 - Hataları veya önerileri Issues kısmından bildirin.
 
----
-
-## 📄 Lisans
-
-MIT Lisansı
-
----
 
 Her türlü soru ve öneriniz için iletişime geçebilirsiniz. 
